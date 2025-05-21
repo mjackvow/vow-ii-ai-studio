@@ -1,0 +1,27 @@
+{
+  /** @type {import('tailwindcss').Config} */
+  "module.exports" "=",
+  {
+    // 1?? Content: Tell Tailwind which files to scan for class names.
+    "content": [
+      "./src/**/*.{js,jsx,ts,tsx}"
+      // You can add other directories if you store components elsewhere.
+    ],
+    // 2?? Theme: Extend the default design system here.
+    "theme": {
+      "extend": {
+        "colors": {
+          "primary": "#3B82F6", // A custom blue you can use as 'bg-primary'
+          "secondary": "#6366F1" // A custom indigo as 'text-secondary'
+        },
+        "fontFamily": {
+          "sans": [ "Inter", "sans-serif" ] // Now you can write 'font-sans'
+        }
+      }
+    },
+    // 3?? Plugins: Add official or third-party plugins as needed.
+    "plugins": [
+      // require('@tailwindcss/forms'),  // Uncomment if you install forms plugin
+    ]
+  },
+}
