@@ -49,7 +49,7 @@
     ]
   },
   "overrides": {
-    "nth-check": "^2.0.1",
+    "nth-check": "^8.5.3",
     "postcss": "^8.5.3"
   }
 }
