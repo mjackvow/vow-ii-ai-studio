@@ -8,5 +8,8 @@
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "build",
   "framework": "create-react-app",
-  "installCommand": "npm install --legacy-peer-deps"
+  "installCommand": "npm install --legacy-peer-deps",
+  "env": {
+    "NODE_OPTIONS": "--max-old-space-size=4096"
+  }
 } 
