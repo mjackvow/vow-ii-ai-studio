@@ -8,8 +8,5 @@
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "build",
   "framework": "create-react-app",
-  "env": {
-    "NODE_OPTIONS": "--openssl-legacy-provider"
-  },
   "installCommand": "npm install --legacy-peer-deps"
 } 
