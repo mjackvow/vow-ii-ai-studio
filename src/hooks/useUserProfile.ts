@@ -7,7 +7,9 @@ export const useUserProfile = () => {
         queryFn: async () => {
             const { data, error } = await supabase.from('user_profiles').select('*').single();
             if (error) throw error;
-            return data;
+            return data || { full_name: 'User', plan: 'Free', tokens_used: 0, total_tokens: 1000 };
         },
+        retry: 1,
+        staleTime: 5 * 60 * 1000, // 5 minutes
     });
 };
