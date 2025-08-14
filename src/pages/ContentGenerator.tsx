@@ -34,33 +34,40 @@ const ContentGenerator: React.FC = () => {
     };
 
     return (
-        <div className="p-8">
-            <h1 className="text-3xl mb-4">Content Generator</h1>
-            <textarea
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
-                placeholder="Enter your prompt"
-                className="w-full p-2 border mb-4 rounded"
-                rows={4}
-            />
-            <button
-                onClick={handleGenerate}
-                disabled={loading || !prompt.trim()}
-                className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50"
-            >
-                {loading ? 'Generating...' : 'Generate'}
-            </button>
-            {error && (
-                <div className="mt-4 p-4 border border-red-300 bg-red-50 text-red-700 rounded">
-                    {error}
+        <div className="p-8 bg-background min-h-screen">
+            <div className="max-w-4xl mx-auto">
+                <h1 className="text-3xl mb-6 text-foreground">Content Generator</h1>
+                <div className="space-y-6">
+                    <div className="bg-card p-6 rounded-lg border border-border">
+                        <label className="block text-sm font-medium mb-2 text-foreground">Prompt</label>
+                        <textarea
+                            value={prompt}
+                            onChange={(e) => setPrompt(e.target.value)}
+                            placeholder="Enter your prompt"
+                            className="w-full p-3 border border-input rounded focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
+                            rows={4}
+                        />
+                    </div>
+                    <button
+                        onClick={handleGenerate}
+                        disabled={loading || !prompt.trim()}
+                        className="bg-primary text-primary-foreground px-6 py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/90 transition-colors"
+                    >
+                        {loading ? 'Generating...' : 'Generate'}
+                    </button>
+                    {error && (
+                        <div className="p-4 border border-destructive bg-destructive/10 text-destructive rounded-lg">
+                            {error}
+                        </div>
+                    )}
+                    {result && (
+                        <div className="bg-card p-6 rounded-lg border border-border">
+                            <h2 className="text-xl mb-4 text-foreground">Generated Content:</h2>
+                            <p className="text-muted-foreground whitespace-pre-wrap">{result}</p>
+                        </div>
+                    )}
                 </div>
-            )}
-            {result && (
-                <div className="mt-4 p-4 border rounded">
-                    <h2 className="text-xl mb-2">Generated Content:</h2>
-                    <p>{result}</p>
-                </div>
-            )}
+            </div>
         </div>
     );
 };

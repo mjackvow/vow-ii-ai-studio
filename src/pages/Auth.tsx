@@ -26,11 +26,11 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-50">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl mb-6 text-center">{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
+    <div className="flex justify-center items-center min-h-screen bg-background">
+      <div className="bg-card p-8 rounded-lg shadow-lg border border-border w-full max-w-md">
+        <h2 className="text-2xl mb-6 text-center text-foreground">{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
         {error && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+          <div className="mb-4 p-3 bg-destructive/10 border border-destructive text-destructive rounded">
             {error}
           </div>
         )}
@@ -40,7 +40,7 @@ const Auth: React.FC = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="block w-full mb-4 p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="block w-full mb-4 p-3 border border-input rounded focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
             required
           />
           <input
@@ -48,21 +48,21 @@ const Auth: React.FC = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="block w-full mb-6 p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="block w-full mb-6 p-3 border border-input rounded focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
             required
             minLength={6}
           />
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full bg-blue-500 text-white px-4 py-3 rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-primary text-primary-foreground px-4 py-3 rounded hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? 'Processing...' : (isSignUp ? 'Sign Up' : 'Sign In')}
           </button>
         </form>
         <button 
           onClick={() => setIsSignUp(!isSignUp)} 
-          className="mt-4 text-blue-500 hover:text-blue-600 w-full text-center"
+          className="mt-4 text-primary hover:text-primary/80 w-full text-center transition-colors"
         >
           {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
         </button>
